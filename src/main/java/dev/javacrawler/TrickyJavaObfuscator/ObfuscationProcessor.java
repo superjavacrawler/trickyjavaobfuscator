@@ -132,57 +132,43 @@ class ObfuscationProcessor extends Thread {
             setFlag(false);
             return;
         }
-        byte[] manifestData;
-        manifestData = FILES.get(FILES.containsKey("bungee.yml") ? "bungee.yml" : "plugin.yml");
-        if (manifestData == null) {
-            setFlag(false);
-            return;
+
+        for (ClassWrapper classWrapper : CLASSES.values()) {
+            ClassNode classNode = classWrapper.getClassNode();
+
+            String hasher = hashers[RANDOM.nextInt(hashers.length)];
+            int keyLength = length[RANDOM.nextInt(length.length)];
+
+            MethodNode generated = generateMethod(hasher, keyLength);
+            MethodWrapper methodHandle = generateMethodHandle(new ClassWrapper(classNode));
+
+            methodHandles.add(methodHandle);
+            classNode.methods.add(generated);
+            classNode.methods.add(methodHandle.getMethodNode());
+            Main.log("");
+            Main.log(classNode.name+ " | " + "Class loaded!");
+            Main.log(classNode.name+ " | " + "Generating handle methods...");
+
+            classNode.methods.stream()
+                    .filter(method -> !method.name.startsWith("<") &&
+                            !method.name.contains("$") &&
+                            "V".equals(Type.getReturnType(method.desc).getDescriptor()))
+                    .collect(Collectors.toList())
+                    .forEach(method -> {
+                        Main.log(classNode.name + " | " + method.name + " | " + "Applying Flow obfuscation...");
+                        processNormalFlow(method);
+                        Main.log(classNode.name + " | " + method.name + " | " + "Applying Invoke Dynamic obfuscation...");
+                        processInvokeDynamic(classNode, method);
+                        Main.log(classNode.name + " | " + method.name + " | " + "Applying String Encryption obfuscation...");
+                        processLdcPacker(classNode, method, generated, hasher, keyLength);
+                        Main.log(classNode.name + " | " + method.name + " | " + "Done!");
+                        Main.log("");
+                    });
+
+
+            processCrasher(classNode);
+
         }
-        String main = Arrays.stream(new String(manifestData).split("\n"))
-                .filter(s -> s.startsWith("main: "))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("Can't find main class"))
-                .trim()
-                .split(": ")[1]
-                .replaceAll("\\.", "/");
-        mainClass = main;
-        var classWrapper = CLASSES.get(main);
-        if (classWrapper == null) {
-            setFlag(false);
-            return;
-        }
-
-        ClassNode classNode = classWrapper.getClassNode();
-
-        String hasher = hashers[RANDOM.nextInt(hashers.length)];
-        int keyLength = length[RANDOM.nextInt(length.length)];
-
-        MethodNode generated = generateMethod(hasher, keyLength);
-        MethodWrapper methodHandle = generateMethodHandle(new ClassWrapper(classNode));
-
-        methodHandles.add(methodHandle);
-        classNode.methods.add(generated);
-        classNode.methods.add(methodHandle.getMethodNode());
-        Main.log("");
-        Main.log(classNode.name+ " | " + "Class loaded!");
-        Main.log(classNode.name+ " | " + "Generating handle methods...");
-
-        classNode.methods.stream()
-                .filter(method -> "V".equals(Type.getReturnType(method.desc).getDescriptor()))
-                .collect(Collectors.toList())  // Создаем копию списка методов
-                .forEach(method -> {
-                    Main.log(classNode.name+ " | " + "Applying Flow obfuscation...");
-                    processNormalFlow(method);
-                    Main.log(classNode.name+ " | " + "Applying Invoke Dynamic obfuscation...");
-                    processInvokeDynamic(classNode, method);
-                    Main.log(classNode.name+ " | " + "Applying String Encryption obfuscation...");
-                    processLdcPacker(classNode, method, generated, hasher, keyLength);
-                    Main.log(classNode.name+ " | " + "Done!");
-                    Main.log("");
-                });
-
-        processCrasher(classNode);
-
         setFlag(true);
 
 
