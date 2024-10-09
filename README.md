@@ -16,7 +16,7 @@
 ```bash
 root@myvds $ [Tricky Java Obfuscator] Enter .jar name or path:
 root@myvds $ MyTestProgram.jar
-root@myvds $ [Tricky Java Obfuscator] Loaded file: C:\Users\javacrawler\Desktop\MyTestProgram.jar
+root@myvds $ [Tricky Java Obfuscator] Loaded file: /root/obfuscator/MyTestProgram.jar
 root@myvds $ [Tricky Java Obfuscator] Processing obfuscation...
 root@myvds $ [Tricky Java Obfuscator]
 root@myvds $ [Tricky Java Obfuscator] com/testprogram/withoneclass/Main | Class loaded!
@@ -26,8 +26,8 @@ root@myvds $ [Tricky Java Obfuscator] com/testprogram/withoneclass/Main | testMe
 root@myvds $ [Tricky Java Obfuscator] com/testprogram/withoneclass/Main | testMethod1 | Applying String Encryption obfuscation...
 root@myvds $ [Tricky Java Obfuscator] com/testprogram/withoneclass/Main | testMethod1 | Done!
 root@myvds $ [Tricky Java Obfuscator]
-[Tricky Java Obfuscator] File saved to C:\Users\javacrawler\Desktop\MyTestProgram.jar
+[Tricky Java Obfuscator] File saved to C/root/obfuscator/MyTestProgram.jar
 ```
 
 ❓ В случае возникновения проблем обращайтесь к [javacrawler.lol](https://javacrawler.lol/)
-Обфускатор был собран и доведен до ума и обфускации исполняемых приложений из частей найденных в интернете!
+Обфускатор был собран из частей найденных в интернете и доведен до ума, а также возможности обфускации исполняемых приложений!
