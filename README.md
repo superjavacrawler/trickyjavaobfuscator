@@ -8,7 +8,7 @@
 3. **String Encryption**: Шифрование всех строк с помощью AES.
 4. **Crasher**: Ломает декомпилятор и не позволяет просто посмотреть исходный код.
 
-> До обфускации: [Скачать .jar](https://github.com/superjavacrawler/trickyjavaobfuscator/raw/refs/heads/main/examples/Before-Obf-helloworld.jar)
+> До обфускации: [Скачать .jar](https://github.com/superjavacrawler/trickyjavaobfuscator/raw/refs/heads/main/examples/Before-Obf-helloworld.jar) | [Скриншот кода](https://github.com/superjavacrawler/trickyjavaobfuscator/blob/main/examples/before-obfuscation.png?raw=true)
 
 > После обфускации: [Скачать .jar](https://github.com/superjavacrawler/trickyjavaobfuscator/raw/refs/heads/main/examples/After-Obf-helloworld-out.jar) | [Скриншот кода](https://raw.githubusercontent.com/superjavacrawler/trickyjavaobfuscator/refs/heads/main/examples/after-obfuscation.png)
 
