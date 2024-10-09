@@ -8,16 +8,8 @@
 3. **String Encryption**: Шифрование всех строк с помощью AES.
 4. **Crasher**: Ломает декомпилятор и не позволяет просто посмотреть исходный код.
 
-###До обфускации: [скачать .jar](https://github.com/superjavacrawler/trickyjavaobfuscator/raw/refs/heads/main/examples/Before-Obf-helloworld.jar)
-
-![изображение](https://github.com/user-attachments/assets/0e444940-7998-4bae-925e-663c0c89579c)
-
-###После обфускации: [скачать .jar](https://github.com/superjavacrawler/trickyjavaobfuscator/raw/refs/heads/main/examples/After-Obf-helloworld-out.jar)
-
-![изображение](https://github.com/user-attachments/assets/fa2ee4cb-749f-43dd-9197-61e390382547)
-
-###Если все таки декомпилировать, после обфускации код выглядит следующим образом:
-![after-obfuscation](https://github.com/user-attachments/assets/26a71905-dfd4-4df8-bac8-79f911b9242c)
+> До обфускации: [скачать .jar](https://github.com/superjavacrawler/trickyjavaobfuscator/raw/refs/heads/main/examples/Before-Obf-helloworld.jar)
+> После обфускации: [скачать .jar](https://github.com/superjavacrawler/trickyjavaobfuscator/raw/refs/heads/main/examples/After-Obf-helloworld-out.jar) [скриншот кода](https://raw.githubusercontent.com/superjavacrawler/trickyjavaobfuscator/refs/heads/main/examples/after-obfuscation.png)
 
 ✋ Для использования, введите путь к `.jar` или его имя, если он в папке с обфускатором:
 ```bash
@@ -36,4 +28,4 @@ root@myvds $ [Tricky Java Obfuscator]
 [Tricky Java Obfuscator] File saved to C:\Users\javacrawler\Desktop\MyTestProgram.jar
 ```
 
-В случае возникновения проблем обращайтесь к [javacrawler.lol](https://javacrawler.lol/)
+❓ В случае возникновения проблем обращайтесь к [javacrawler.lol](https://javacrawler.lol/)
