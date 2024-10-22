@@ -26,7 +26,7 @@ root@myvds $ [Tricky Java Obfuscator] com/testprogram/withoneclass/Main | testMe
 root@myvds $ [Tricky Java Obfuscator] com/testprogram/withoneclass/Main | testMethod1 | Applying String Encryption obfuscation...
 root@myvds $ [Tricky Java Obfuscator] com/testprogram/withoneclass/Main | testMethod1 | Done!
 root@myvds $ [Tricky Java Obfuscator]
-[Tricky Java Obfuscator] File saved to C/root/obfuscator/MyTestProgram.jar
+[Tricky Java Obfuscator] File saved to /root/obfuscator/MyTestProgram.jar
 ```
 
 ❓ В случае возникновения проблем обращайтесь к [javacrawler.lol](https://javacrawler.lol/)
